@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://camaxjyxp1c0g"]
+
+[ext_resource type="Script" uid="uid://qdddmhardjvb" path="res://scripts/monster.gd" id="1_03xat"]
+[ext_resource type="PackedScene" uid="uid://dpejnros12rbj" path="res://models/3d модель теневой сущности.glb" id="2_7o5b4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_03xat"]
+
+[node name="Monster" type="CharacterBody3D" unique_id=200799511]
+script = ExtResource("1_03xat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1209391062]
+shape = SubResource("CapsuleShape3D_03xat")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1166383094]
+
+[node name="Monster" parent="Visuals" unique_id=1470026685 instance=ExtResource("2_7o5b4")]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=924045996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032160327, -0.03273368, -0.039730307)
+aabb = AABB(-0.16960256, -0.5402841, -0.5757718, 0.33920512, 1.0805682, 1.1515436)
+
+[node name="Timer" type="Timer" parent="." unique_id=1044367299]
+wait_time = 0.5
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1681070459]
