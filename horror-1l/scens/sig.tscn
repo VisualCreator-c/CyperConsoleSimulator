@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bw2hclb7g1o3e"]
+
+[ext_resource type="PackedScene" uid="uid://b6vlgbnn7dtu0" path="res://models/Meshy_AI_Cigarette_Still_Life_0210194923_texture.glb" id="1_abh2n"]
+[ext_resource type="Script" uid="uid://072jvxohca4e" path="res://scripts/sig.gd" id="1_k2oyp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_abh2n"]
+
+[node name="Sig" type="Area3D" unique_id=336609993]
+script = ExtResource("1_k2oyp")
+
+[node name="Meshy_AI_Cigarette_Still_Life_0210194923_texture" parent="." unique_id=866240250 instance=ExtResource("1_abh2n")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971957563]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_abh2n")
+
+[node name="Timer" type="Timer" parent="." unique_id=670557876]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

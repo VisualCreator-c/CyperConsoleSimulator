@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ctp4fyd74s3u3"]
+
+[ext_resource type="Script" uid="uid://do028enhcqvpf" path="res://scripts/food.gd" id="1_mu0sr"]
+[ext_resource type="PackedScene" uid="uid://dsp5eh01oqy2x" path="res://models/Meshy_AI_Mystical_Mushroom_0210183140_texture.glb" id="2_crnga"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crnga"]
+
+[node name="Food" type="Area3D" unique_id=1741328187]
+script = ExtResource("1_mu0sr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=723931971]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.058023274, 0)
+shape = SubResource("BoxShape3D_crnga")
+
+[node name="Meshy_AI_Mystical_Mushroom_0210183140_texture" parent="." unique_id=1867388029 instance=ExtResource("2_crnga")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1144511366]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
